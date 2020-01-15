@@ -5,7 +5,7 @@
         @if($user)    
             @if($user->role === 1)                
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('compte') }}">MON COMPTE</a>
+                        <a class="nav-link text-light btn-admin" href="{{ route('compte') }}">Accés administrateur</a>
                     </li>
             @endif
         @endif
@@ -13,16 +13,27 @@
 
 @section('content')
     <div class="container">
-    {{$productsMen->links()}}
-    <h1>{{count($productsMenCount)}}</h1>
+        <div class="flex-main-head">
+            {{$productsMen->links()}}
+            <p><span class="display-5 font-weight-bold">Catégorie Homme : {{count($productsMenCount)}} produits en ligne </span><span class="number-products">/ {{count($productsMenCountBr)}} produits hors ligne</span> </p>
+        </div>
         
-            @foreach($productsMen as $productMen)
-            {{ $productMen->id }}
-                <a href="{{ route('product.show', $productMen->id) }}"><img class="img-fluid" src="{{ asset('images/'.$productMen->url_image) }}" alt="{{ $productMen->title_product }}"></a>
-                <p><a href="{{ route('product.show', $productMen->id) }}">{{ $productMen->title_product }}</a></p>
-                <p>@price($productMen->price)</p>   
-                
-                                
+        
+        <div class="flex-products">
+            @foreach($productsMen as $productMen) 
+                <div class="card mb-5" style="width: 18rem;">
+                <a href="{{ route('product.show', $productMen->id) }}"><img class="card-img-top" src="{{ asset('images/'.$productMen->url_image) }}" alt="{{ $productMen->title_product }}"></a>
+                    <div class="card-body text-center">
+                        <h2 class="h2 card-title">{{ $productMen->title_product }}</h2>
+                        <h3 class="card-title mb-4">Catégorie Homme</h3>
+                        <p class="card-text mb-4">Prix : @price($productMen->price)</p>
+                        <a href="{{ route('product.show', $productMen->id) }}" class="btn btn-dark">voir le produit</a>
+                    </div>
+                </div>
             @endforeach
-    </div>
+        </div> 
+        <div class="flex-paginate">            
+            <div>{{$productsMen->links()}}</div>                    
+        </div>
+    </div>   
 @endsection

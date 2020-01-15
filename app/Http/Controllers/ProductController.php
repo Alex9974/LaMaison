@@ -6,6 +6,7 @@ use App\Product;
 use App\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -25,10 +26,18 @@ class ProductController extends Controller
     // Page d'accueil du site : tapissage des produits
     public function index()
     {      
-        $products = Product::orderBy('id', 'desc')->paginate($this->paginate);
+        $products = Product::where('status', 'publié')->orderBy('id', 'desc')->paginate($this->paginate);
         $user = Auth::user(); 
-        $productsCount = Product::all();
-        return view('product.index', ['products' => $products, 'user' => $user, 'productsCount' => $productsCount]); 
+        $productsCount = Product::where('status', 'publié')->get();
+        $productsCountBr = Product::where('status', 'brouillon')->get();
+        $category = Categorie::all();
+        return view('product.index', [
+            'products' => $products, 
+            'user' => $user, 
+            'productsCount' => $productsCount,
+            'productsCountBr' => $productsCountBr, 
+            'category' => $category,
+        ]); 
     }
 
     /**
@@ -66,7 +75,12 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $user = Auth::user(); 
-        return view('product.show', ['product' => $product, 'user' => $user]);
+        $categories = Categorie::all();
+        return view('product.show', [
+            'product' => $product, 
+            'user' => $user,
+            'categories' => $categories,
+        ]);
     }
 
     // pour afficher la liste des produits des Hommes
@@ -74,8 +88,14 @@ class ProductController extends Controller
     {        
         $user = Auth::user(); 
         $productsMen = Product::where('category_id', 1)->orderBy('id', 'desc')->paginate($this->paginate);
-        $productsMenCount = Product::where('category_id', 1)->get(); 
-        return view('product.showmen', ['productsMen' => $productsMen, 'productsMenCount' => $productsMenCount, 'user' => $user]);
+        $productsMenCount = Product::where('category_id', 1)->where('status', 'publié')->get();
+        $productsMenCountBr = Product::where('category_id', 1)->where('status', 'brouillon')->get(); 
+        return view('product.showmen', [
+            'productsMen' => $productsMen, 
+            'productsMenCount' => $productsMenCount,
+            'productsMenCountBr' => $productsMenCountBr, 
+            'user' => $user
+        ]);
     }
 
     // pour afficher la liste des produits des Femmes
@@ -83,8 +103,14 @@ class ProductController extends Controller
     {
         $user = Auth::user(); 
         $productsWomen = Product::where('category_id', 2)->orderBy('id', 'desc')->paginate($this->paginate);
-        $productsWomenCount = Product::where('category_id', 2)->get();
-        return view('product.showwomen', ['productsWomen' => $productsWomen, 'productsWomenCount' => $productsWomenCount, 'user' => $user]);
+        $productsWomenCount = Product::where('category_id', 2)->where('status', 'publié')->get();
+        $productsWomenCountBr = Product::where('category_id', 2)->where('status', 'brouillon')->get();
+        return view('product.showwomen', [
+            'productsWomen' => $productsWomen, 
+            'productsWomenCount' => $productsWomenCount, 
+            'productsWomenCountBr' => $productsWomenCountBr, 
+            'user' => $user
+        ]);
     }
 
     // pour afficher la liste des produits en soldes
@@ -92,8 +118,14 @@ class ProductController extends Controller
     {
         $user = Auth::user(); 
         $productsSolds = Product::where('code', 'solde')->orderBy('id', 'desc')->paginate($this->paginate);
-        $productsSoldsCount = Product::where('code', 'solde')->get();
-        return view('product.showsolds', ['productsSolds' => $productsSolds, 'productsSoldsCount' => $productsSoldsCount, 'user' => $user]);
+        $productsSoldsCount = Product::where('code', 'solde')->where('status', 'publié')->get();
+        $productsSoldsCountBr = Product::where('code', 'solde')->where('status', 'brouillon')->get();
+        return view('product.showsolds', [
+            'productsSolds' => $productsSolds, 
+            'productsSoldsCount' => $productsSoldsCount,
+            'productsSoldsCountBr' => $productsSoldsCountBr, 
+            'user' => $user
+        ]);
     }
 
     /**

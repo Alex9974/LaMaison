@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 $factory->define(Product::class, function (Faker $faker) {
     // Storage::disk('local')->delete(Storage::allFiles());    
     $link = Str::random(12) . '.jpg'; // hash de lien pour la sécurité (injection de scripts protection)
-    $file = file_get_contents('https://picsum.photos/id/'.rand(1, 10).'/250/250'); // flux
+    $file = file_get_contents('https://picsum.photos/id/'.rand(1, 10).'/600/750'); // flux
     Storage::disk('local')->put($link, $file);
     return [
         'category_id' => $faker->numberBetween($min = 1, $max = 2),
