@@ -27,6 +27,6 @@ class Admin
             }            
         }
         // si membre n'est pas authentifié ou si le membre est authentifié mais a son role renseigné autre chose que 1
-        abort(403);        
+        return redirect()->route('product.index');     
     }
 }

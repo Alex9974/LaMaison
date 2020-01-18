@@ -64,7 +64,8 @@ header{
 }
 
 header h1{
-  font-size: 30px;
+  font-size: 70px;
+  font-family: 'Allura', cursive;
 }
 
 header .flex-nav-sup{
@@ -73,8 +74,16 @@ header .flex-nav-sup{
   justify-content: space-between;
 }
 
+.btn-pseudo{
+  border-right: 1px solid #606973;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
 .btn-admin{
-  border-left: 1px solid #606973;
+  font-size: 10px;
+  letter-spacing: 2px;
 }
 
 header .flex-nav-inf{
@@ -85,6 +94,21 @@ header .flex-nav-inf{
 header .flex-nav-inf li{
   padding: 0 30px;
   font-size: 15px;
+  letter-spacing: 2px;
+}
+
+header .fa-lock{
+  font-size: 14px;;
+}
+
+header .fa-user-lock{
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+header .title-boff{
+  font-size: 25px;
+  letter-spacing: 4px;
 }
 
 /* *****************FIN HEADER***************** */
@@ -93,8 +117,15 @@ header .flex-nav-inf li{
 
 main{
   width: 100%;
-  margin-top: 200px;
   font-size: 14px;
+}
+
+.main-boff{
+  margin-top: 250px;
+}
+
+.main-font{
+  margin-top: 220px;
 }
 
 main .links-top{
@@ -133,6 +164,48 @@ main .flex-paginate{
   display: flex;
   justify-content: center;
   margin-bottom: 35px;
+}
+
+thead{
+  font-weight: bold;
+}
+
+tbody button{
+  width: 80%;
+  height: 20px;
+}
+
+/* *****************bBACKOFFICE***************** */
+
+.card-formulaire {
+  margin: 0 10%;
+}
+
+.flex-formulaire {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-formulaire1 {
+  width: 55%;
+}
+.flex-formulaire2{
+  width: 35%;
+}
+
+.image-update{
+  width: 30%;
+}
+
+.flex-destroy{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-destroy{
+  width: 95%;
+  margin: 0 2.5% 20px 2.5%;
+  padding: 15px 0;
 }
 
 

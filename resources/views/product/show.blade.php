@@ -1,16 +1,5 @@
 @extends('layouts.app')
 
-@section('sidebar')
-    @parent
-        @if($user)    
-            @if($user->role === 1)                
-                    <li class="nav-item">
-                        <a class="nav-link text-light btn-admin" href="{{ route('compte') }}">Accés administrateur</a>
-                    </li>
-            @endif
-        @endif
-@endsection
-
 @section('content')
     <article>
         <div class="container">

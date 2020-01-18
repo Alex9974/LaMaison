@@ -4,7 +4,7 @@
 
 Auth::routes();
 
-Route::get('/compte', 'HomeController@index')->name('compte');
+Route::get('/admin', 'HomeController@index')->name('compte');
 
 // Routes de la boutique et la gestion des produits
 
@@ -13,6 +13,7 @@ Route::get('/produit/{product}', 'ProductController@show')->name('product.show')
 Route::get('/homme', 'ProductController@showMen')->name('product.showMen');
 Route::get('/femme', 'ProductController@showWomen')->name('product.showWomen');
 Route::get('/solde', 'ProductController@showSolds')->name('product.showSolds');
+Route::get('/admin/{admin}/destroy', 'ProductController@editDestroy')->name('admin.editdestroy');
 
 Route::resource('/admin', 'ProductController')->except('index', 'show', 'showMen', 'showWomen', 'showSolds'); 
 

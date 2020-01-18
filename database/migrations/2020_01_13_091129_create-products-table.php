@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 8, 2);
             $table->enum('size', ['46', '46 48', '46 48 50', '46 48 50 52', '48', '48 50', '48 50 52', '50', '50 52', '52']);
             $table->string('url_image', 100);
-            $table->enum('status', ['publié', 'brouillon']);
+            $table->enum('status', ['publie', 'brouillon']);
             $table->enum('code', ['solde', 'new']);
             $table->integer('reference');
             $table->foreign('category_id')->references('id')->on('categories');

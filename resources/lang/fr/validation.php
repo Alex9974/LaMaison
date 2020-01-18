@@ -179,6 +179,7 @@ return [
         'title_category' => 'Nom de la catégrorie', 
         'status' => 'Statut de publication du produit', 
         'code' => 'Code de la collection', 
-        'reference' => 'Référence du produit'
+        'reference' => 'Référence du produit',
+        'picture' => 'photo',
     ],
 ];
