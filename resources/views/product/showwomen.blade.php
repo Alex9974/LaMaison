@@ -4,7 +4,12 @@
     <div class="container">
         <div class="flex-main-head">
             {{$productsWomen->links()}}
-            <p><span class="display-5 font-weight-bold">Catégorie Femme : {{count($productsWomenCount)}} produits en ligne </span><span class="number-products">/ {{count($productsWomenCountBr)}} produits hors ligne</span> </p>
+            <p><span class="display-5 font-weight-bold">Catégorie Femme : {{count($productsWomenCount)}} produits en ligne </span>
+            @auth                           
+                @if($user->role === 1)                
+                    <span class="number-products">/ {{count($productsWomenCountBr)}} produits hors ligne</span>
+                @endif                                                       
+            @endauth
         </div>
         
         

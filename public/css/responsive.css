@@ -1,0 +1,26 @@
+/* *****************HEADER***************** */
+
+@media (max-width: 991px) {
+    .links-lg{
+      display:none;
+    }
+    
+    header .fa-lock{
+        font-size: 12px;;
+    }
+}
+
+@media (min-width:992px) {
+    .admin-link-sm{
+      display:none;
+    }
+
+    .links-sm{
+        display:none;
+    }
+
+    
+
+    
+}
+

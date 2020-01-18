@@ -24,26 +24,26 @@
                     <div class="flex-formulaire1">
                         <div class="form-group row mb-5">
 
-                            <label for="titre" class="col-sm-4 col-form-label">Titre</label>
+                            <label for="titre" class="col-sm-4 col-form-label">Titre*</label>
                             <div class="col-sm-8">
                                 <input type="text" name="titre" class="form-control form-control-sm" id="titre" value="{{ old('titre') }}">
                             </div>
                         </div>
 
                         <div class="form-group mb-5">
-                            <label class="mb-3" for="description">Description</label>
+                            <label class="mb-3" for="description">Description*</label>
                             <textarea name="description" class="form-control" id="description" rows="8">{{ old('description') }}</textarea>
                         </div>
 
                         <div class="form-group row mb-5">
-                            <label for="prix" class="col-sm-4 col-form-label">Prix</label>
+                            <label for="prix" class="col-sm-4 col-form-label">Prix*</label>
                             <div class="col-sm-8">
                                 <input type="number" name="price" class="form-control form-control-sm" id="prix" value="{{ old('price') }}">
                             </div>
                         </div>
 
                         <div class="form-group row mb-5">
-                            <label for="categorie" class="col-sm-4 col-form-label">Catégorie</label>
+                            <label for="categorie" class="col-sm-4 col-form-label">Catégorie*</label>
                             <div class="col-sm-8">
                                 <select id="categorie" name="categorie" class="form-control form-control-sm">
                                     <option value="">Sélectionnez catégorie</option>
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="form-group row mb-5">
-                            <label for="taille" class="col-sm-4 col-form-label">Taille</label>
+                            <label for="taille" class="col-sm-4 col-form-label">Taille*</label>
                             <div class="col-sm-8">
                                 <select id="taille" name="taille" class="form-control form-control-sm">
                                     <option value="" selected>Sélectionnez taille</option>
@@ -70,7 +70,7 @@
 
                         <div class="custom-file mb-5">
                             <input type="file" name="picture" class="custom-file-input" id="validatedCustomFile" required>
-                            <label class="custom-file-label" for="validatedCustomFile">Téléchargez une image</label>
+                            <label class="custom-file-label" for="validatedCustomFile">Téléchargez une image*</label>
                         </div>
 
                     </div>
@@ -79,7 +79,7 @@
                     <div class="flex-formulaire2">
 
                         <fieldset class="form-group mb-5">    
-                            <legend class="col-form-label mb-3">Statut</legend>
+                            <legend class="col-form-label mb-3">Statut*</legend>
                         
                             <div class="form-check mb-4">
                                 <input class="form-check-input" type="radio" name="status" id="publie" value="publie" 
@@ -95,7 +95,7 @@
 
 
                         <div class="form-group mb-5">
-                            <label for="code" class="col-form-label mb-3">Code produit</label>
+                            <label for="code" class="col-form-label mb-3">Code produit*</label>
                             <select id="code" name="code" class="form-control form-control-sm">
                                 <option value="">Sélectionnez code produit</option>
                                 <option value="solde"
@@ -106,7 +106,7 @@
                         </div>
 
                         <div class="form-group mb-5">
-                            <label for="reference" class="col-form-label mb-3">Référence produit</label>
+                            <label for="reference" class="col-form-label mb-3">Référence produit*</label>
                             <input type="text" name="reference" class="form-control form-control-sm" id="reference" value="{{ old('reference') }}">
                         </div>
 
@@ -115,6 +115,7 @@
                 </div>
 
                 <input class="btn btn-info px-5 py-3" type="submit" value="Ajouter">
+                <p class="mt-4 font-italic" style="font-size:12px">* tous les champs sont obligatoires.</p>
 
             </form>
                         

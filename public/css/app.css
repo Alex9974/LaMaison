@@ -75,10 +75,17 @@ header .flex-nav-sup{
 }
 
 .btn-pseudo{
-  border-right: 1px solid #606973;
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 15px;
+}
+
+.btn-deconnex{
+  border-left: 1px solid #606973;
+}
+
+.btn-deconnex-sm{
+  font-size: 12px;
 }
 
 .btn-admin{
@@ -109,6 +116,7 @@ header .fa-user-lock{
 header .title-boff{
   font-size: 25px;
   letter-spacing: 4px;
+  font-weight: bold;
 }
 
 /* *****************FIN HEADER***************** */
@@ -118,14 +126,7 @@ header .title-boff{
 main{
   width: 100%;
   font-size: 14px;
-}
-
-.main-boff{
-  margin-top: 250px;
-}
-
-.main-font{
-  margin-top: 220px;
+  margin-top: 50px;
 }
 
 main .links-top{
