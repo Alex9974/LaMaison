@@ -10,37 +10,34 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
+    //pour afficher seulement 10 produits par page d'accueil du back office
     protected $paginate = 10;
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
     public function __construct()
     {
+        // application du middleware admin pour ne donner accès au back office qu'aux membres administrateur (role = 1)
         $this->middleware('admin');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    // pour afficher tous les produits sur la page d'accueil du back office
     public function index()
-    {        
+    {   
+        $products = DB::table('products')
+                        ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+                        ->select('products.*', 'categories.title_category')
+                        ->orderBy('products.id', 'desc')
+                        ->paginate($this->paginate);
         $user = Auth::user(); 
-        $products = Product::orderBy('id', 'desc')->paginate($this->paginate);
         $productsTotal = Product::all();
         $productsCount = Product::where('status', 'publié')->get();
         $productsCountBr = Product::where('status', 'brouillon')->get();
-        $categories = Categorie::all(); 
+        
         return view('admin/home', [            
             'user' => $user, 
             'products' => $products,
             'productsCount' => $productsCount,
             'productsCountBr' => $productsCountBr, 
             'productsTotal' => $productsTotal,
-            'categories' => $categories,            
         ]); 
 
         

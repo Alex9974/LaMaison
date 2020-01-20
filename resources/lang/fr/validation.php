@@ -181,5 +181,9 @@ return [
         'code' => 'Code de la collection', 
         'reference' => 'Référence du produit',
         'picture' => 'photo',
+        'picture_princ' => 'photo principale',
+        'picture_sec1' => 'photo secondaire 1',
+        'picture_sec2' => 'photo secondaire 2',
+        'picture_sec3' => 'photo secondaire 3',
     ],
 ];

@@ -1,3 +1,5 @@
+<!-- LAYOUT DES PAGES FRONT DU SITE -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

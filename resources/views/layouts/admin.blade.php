@@ -1,3 +1,5 @@
+<!-- LAYOUT DES PAGES DU BACK OFFICE-->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,9 +34,7 @@
                     </nav>
                 </div>
 
-                <h2 class="text-light text-center title-boff">Backoffice</h2>
-
-                
+                <h2 class="text-light text-center title-boff">Back office</h2>           
                     
                 
                 <nav class="navbar navbar-expand-lg navbar-light mt-4">

@@ -26,5 +26,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
+
+    // On redirige vers la page d'accueil du site 
     protected $redirectTo = '/';
 }

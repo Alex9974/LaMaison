@@ -1,3 +1,5 @@
+<!-- PAGE D'AFFICHE DE LA FICHE D'UN PRODUIT (front accessible à tous)-->
+
 @extends('layouts.app')
 
 @section('content')
@@ -8,22 +10,30 @@
                 @if($product->code === 'solde')
                 <a href="{{ route('product.showSolds') }}">solde</a> >
                 @endif
-
-                @foreach($categories as $cat)
-                    @if($product->category_id === $cat->id)
-                        <a href="@if($cat->title_category === 'Femme')
-                        {{ route('product.showWomen') }}
-                        @else
-                        {{ route('product.showMen') }}
-                        @endif">{{ $cat->title_category }}</a>                        
-                    @endif
-                @endforeach            
-            </div>
+                <a href="@if($category[0]['title_category'] === 'Femme')
+                {{ route('product.showWomen') }}
+                @else
+                {{ route('product.showMen') }}
+                @endif">
+                    {{ $category[0]['title_category'] }}
+                </a>
+            </div>            
             
             <div class="row">
-                <div class="col-3"></div>
+                <div class="col-3">
+                    <div class="text-center">
+                        <img class="img-fluid w-50 mb-3" src="{{ asset('images/'.$pictures[1]->picture) }}" alt="{{ $product->title_product }}">
+                    </div>
+                    <div class="text-center">
+                        <img class="img-fluid w-50 mb-3" src="{{ asset('images/'.$pictures[2]->picture) }}" alt="{{ $product->title_product }}">
+                    </div>
+                    <div class="text-center">
+                        <img class="img-fluid w-50 mb-3" src="{{ asset('images/'.$pictures[3]->picture) }}" alt="{{ $product->title_product }}">
+                    </div>                   
+                
+                </div>
                 <div class="col-6 text-center">
-                    <img class="img-fluid" src="{{ asset('images/'.$product->url_image) }}" alt="{{ $product->title_product }}">
+                <img class="img-fluid" src="{{ asset('images/'.$pictures[0]->picture) }}" alt="{{ $product->title_product }}">
                 </div>
                 <div class="col-3">
                     <div class="card" style="width: 18rem;">

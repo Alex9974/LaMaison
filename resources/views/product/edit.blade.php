@@ -1,3 +1,5 @@
+<!-- PAGE DE MISE A JOUR D'UN PRODUIT (back office accessible uniquement aux membres administrateurs)-->
+
 @extends('layouts.admin')
 
 @section('content')
@@ -16,7 +18,7 @@
     <div class="card card-formulaire mb-5">
         <div style="letter-spacing:2px" class="card-header text-info font-weight-bold py-4">Modifier un produit</div>
         <ul class="card-body">
-            <form method="POST" action="{{ route('admin.update', $product->id) }}" enctype="multipart/form-data" novalidate>
+            <form method="POST" action="{{ route('admin.update', $product) }}" enctype="multipart/form-data" novalidate>
                 @csrf
                 @method('PUT')
 
@@ -65,16 +67,52 @@
                             </div>
                         </div>
 
-                        <div class="card mb-5" style="width: 8rem;">
-                            <img class="card-img-top img-fluid" src="{{ asset('images/'.$product->url_image) }}" alt="{{ $product->title_product }}">
-                            <div class="card-body">
-                                <p class="card-text text-center">Image actuelle</p>
-                            </div>
-                        </div> 
+                        <div class="row">
 
-                        <div class="custom-file mb-5">
-                            <input type="file" name="picture" class="custom-file-input" id="validatedCustomFile" required>
-                            <label class="custom-file-label" for="validatedCustomFile">Téléchargez une nouvelle image*</label>
+                            <div class="col-sm-12 col-md-6 col-lg-9 card mb-5  border-info" style="width: 8rem;">
+                                <img class="card-img-top img-fluid" src="{{ asset('images/'.$pictures[0]->picture) }}" alt="{{ $product->title_product }}">
+                                <div class="card-body">
+                                    <p class="card-text text-center">Image principale</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4 card mb-5" style="width: 8rem;">
+                                <img class="card-img-top img-fluid" src="{{ asset('images/'.$pictures[1]->picture) }}" alt="{{ $product->title_product }}">
+                                <div class="card-body">
+                                    <p class="card-text text-center">Image secondaire 1</p>
+                                </div>
+                            </div> 
+                            <div class="col-sm-12 col-md-6 col-lg-4 card mb-5" style="width: 8rem;">
+                                <img class="card-img-top img-fluid" src="{{ asset('images/'.$pictures[2]->picture) }}" alt="{{ $product->title_product }}">
+                                <div class="card-body">
+                                    <p class="card-text text-center">Image secondaire 2</p>
+                                </div>
+                            </div> 
+                            <div class="col-sm-12 col-md-6 col-lg-4 card mb-5" style="width: 8rem;">
+                                <img class="card-img-top img-fluid" src="{{ asset('images/'.$pictures[3]->picture) }}" alt="{{ $product->title_product }}">
+                                <div class="card-body">
+                                    <p class="card-text text-center">Image secondaire 3</p>
+                                </div>
+                            </div>  
+                        </div>      
+
+                        <div class="d-flex align-items-center border border-muted rounded mb-3">
+                            <label for="exampleFormControlFile1" class="col-4">Image principale*</label>
+                            <input type="file" name="picture_princ" class="form-control-file col-8 py-3 text-info" id="exampleFormControlFile1">
+                        </div>
+
+                        <div class="d-flex align-items-center border border-muted rounded mb-3">
+                            <label for="exampleFormControlFile1" class="col-4">Image secondaire 1*</label>
+                            <input type="file" name="picture_sec1" class="form-control-file col-8 py-3 text-info" id="exampleFormControlFile1">
+                        </div>
+
+                        <div class="d-flex align-items-center border border-muted rounded mb-3">
+                            <label for="exampleFormControlFile1" class="col-4">Image secondaire 2*</label>
+                            <input type="file" name="picture_sec2" class="form-control-file col-8 py-3 text-info" id="exampleFormControlFile1">
+                        </div>
+
+                        <div class="d-flex align-items-center border border-muted rounded mb-5">
+                            <label for="exampleFormControlFile1" class="col-4">Image secondaire 3*</label>
+                            <input type="file" name="picture_sec3" class="form-control-file col-8 py-3 text-info" id="exampleFormControlFile1">
                         </div>
 
                     </div>

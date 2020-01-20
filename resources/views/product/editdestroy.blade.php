@@ -1,3 +1,5 @@
+<!-- PAGE DE SUPPRESSION D'UN PRODUIT (back office accessible uniquement aux membres administrateurs)-->
+
 @extends('layouts.admin')
 
 @section('content')
@@ -8,13 +10,19 @@
             <div class="flex-destroy m-3">
 
                 <div class="card" style="width: 20%; border:none;">
-                    <img src="{{ asset('images/'.$product->url_image) }}" class="card-img-top" alt="{{ $product->url_image }}">
-                    <div class="card-body">
-                        <h2 class="card-title font-weight-bold text-center" style="font-size:18px">{{ $product->title_product }}</h2>
-                    </div>
+                        @foreach($pictures as $picture)                                            
+                                <img class="card-img-top mb-2" src="{{ asset('images/'.$picture->picture) }}" alt="{{ $product->title_product }}">                                                 
+                        @endforeach
                 </div>
 
                 <ul class="card-body" style="width: 80%; padding-top:0px;">
+
+                    <div class="card mb-3">
+                        <div class="card-header font-weight-bold">Titre du produit</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-info">{{ $product->title_product }}</li>
+                        </ul>
+                    </div>
 
                     <div class="card mb-3">
                         <div class="card-header font-weight-bold">Description</div>
@@ -26,11 +34,9 @@
                     <div class="card mb-3">
                         <div class="card-header font-weight-bold">Catégorie</div>
                         <ul class="list-group list-group-flush">
-                            @foreach($categories as $category)
-                                @if($category->id === $product->category_id)
-                                    <li class="list-group-item">{{ $category->title_category }}</li>
-                                @endif
-                            @endforeach
+                            
+                                    <li class="list-group-item">{{ $category[0]->title_category }}</li>
+                               
                         </ul>
                     </div>
 

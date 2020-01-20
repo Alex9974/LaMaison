@@ -1,3 +1,5 @@
+<!-- PAGE DE CREATION D'UN NOUVEAU PRODUIT (back office accessible uniquement aux membres administrateurs)-->
+
 @extends('layouts.admin')
 
 @section('content')
@@ -68,9 +70,24 @@
                             </div>
                         </div>
 
-                        <div class="custom-file mb-5">
-                            <input type="file" name="picture" class="custom-file-input" id="validatedCustomFile" required>
-                            <label class="custom-file-label" for="validatedCustomFile">Téléchargez une image*</label>
+                        <div class="d-flex align-items-center border border-muted rounded mb-3">
+                            <label for="exampleFormControlFile1" class="col-4">Image principale*</label>
+                            <input type="file" name="picture_princ" class="form-control-file col-8 py-3 text-info" id="exampleFormControlFile1">
+                        </div>
+
+                        <div class="d-flex align-items-center border border-muted rounded mb-3">
+                            <label for="exampleFormControlFile1" class="col-4">Image secondaire 1*</label>
+                            <input type="file" name="picture_sec1" class="form-control-file col-8 py-3 text-info" id="exampleFormControlFile1">
+                        </div>
+
+                        <div class="d-flex align-items-center border border-muted rounded mb-3">
+                            <label for="exampleFormControlFile1" class="col-4">Image secondaire 2*</label>
+                            <input type="file" name="picture_sec2" class="form-control-file col-8 py-3 text-info" id="exampleFormControlFile1">
+                        </div>
+
+                        <div class="d-flex align-items-center border border-muted rounded mb-5">
+                            <label for="exampleFormControlFile1" class="col-4">Image secondaire 3*</label>
+                            <input type="file" name="picture_sec3" class="form-control-file col-8 py-3 text-info" id="exampleFormControlFile1">
                         </div>
 
                     </div>

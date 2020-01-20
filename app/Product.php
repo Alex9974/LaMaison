@@ -10,4 +10,9 @@ class Product extends Model
         // 1 produit ne peut-être rattaché qu'à une seule catégorie (Homme ou Femme)
         return $this->belongsTo(Categorie::class);
     }
+
+    public function pictures() {
+        // 1 produit peut avoir plusieurs pictures (4 pour l'exercice)
+        return $this->hasMany(Picture::class);
+    }
 }

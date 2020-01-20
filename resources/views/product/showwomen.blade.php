@@ -1,33 +1,37 @@
+<!-- PAGE D'AFFICHE DE TOUS LES PRODUITS EN LIGNE DES FEMMES (front accessible à tous)-->
+
 @extends('layouts.app')
 
 @section('content')
     <div class="container">
         <div class="flex-main-head">
-            {{$productsWomen->links()}}
-            <p><span class="display-5 font-weight-bold">Catégorie Femme : {{count($productsWomenCount)}} produits en ligne </span>
+            {{$products->links()}}
+            <p><span class="display-5 font-weight-bold">Catégorie {{ $products[0]->title_category }} : {{count($productsWomenCount)}} produits en ligne </span>
             @auth                           
                 @if($user->role === 1)                
                     <span class="number-products">/ {{count($productsWomenCountBr)}} produits hors ligne</span>
                 @endif                                                       
             @endauth
+            </p>
         </div>
-        
-        
+
         <div class="flex-products">
-            @foreach($productsWomen as $productWomen) 
+            @foreach($products as $product) 
                 <div class="card mb-5" style="width: 18rem;">
-                <a href="{{ route('product.show', $productWomen->id) }}"><img class="card-img-top" src="{{ asset('images/'.$productWomen->url_image) }}" alt="{{ $productWomen->title_product }}"></a>
+                    <a href="{{ route('product.show', $product->id) }}">
+                        <img class="card-img-top" src="{{ asset('images/'.$product->picture) }}" alt="{{ $product->title_product }}">
+                    </a>
                     <div class="card-body text-center">
-                        <h2 class="h2 card-title">{{ $productWomen->title_product }}</h2>
-                        <h3 class="card-title mb-4">Catégorie Femme</h3>
-                        <p class="card-text mb-4">Prix : @price($productWomen->price)</p>
-                        <a href="{{ route('product.show', $productWomen->id) }}" class="btn btn-dark">voir le produit</a>
+                        <h2 class="h2 card-title">{{ $product->title_product }}</h2>
+                        <h3 class="card-title mb-4">Catégorie {{ $product->title_category }}</h3>
+                        <p class="card-text mb-4">Prix : @price($product->price)</p>
+                        <a href="{{ route('product.show', $product->id) }}" class="btn btn-dark">voir le produit</a>
                     </div>
                 </div>
             @endforeach
         </div> 
         <div class="flex-paginate">            
-            <div>{{$productsWomen->links()}}</div>                    
+            <div>{{$products->links()}}</div>                    
         </div>
     </div>   
 @endsection

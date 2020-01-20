@@ -7,14 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class Admin
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-
     // middleware Admin qui vérifie si le membre est administrateur (role renseigné à 1) pour pouvoir modifier le contenu de la boutique
     public function handle($request, Closure $next)
     {
