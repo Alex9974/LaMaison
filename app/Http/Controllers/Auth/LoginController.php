@@ -27,7 +27,7 @@ class LoginController extends Controller
      * @var string
      */
 
-    // On redirige vers la page d'accueil du site 
+    // On redirige vers la page d'accueil de l'application (liste des produits en ligne) 
     protected $redirectTo = '/';
 
     /**

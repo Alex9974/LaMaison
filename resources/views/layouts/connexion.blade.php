@@ -1,4 +1,4 @@
-<!-- LAYOUT DES PAGES FRONT DU SITE -->
+<!-- LAYOUT DES PAGES DE CONNEXION -->
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,7 +18,7 @@
     <header class="py-4 border-bottom-primary">
             <div class="container">
                 <div class="flex-nav-sup">
-                    <a href="{{ route('product.index') }}" alt="Page d'accueil">
+                    <a href="{{ route('product.index') }}"  title="Aller à la page d'accueil">
                         <h1 class="text-info mb-3" style="font-size:100px; letter-spacing:3px"><span class="text-light" style="font-size:32px">boutique</span> La Maison</h1>
                     </a> 
                 </div>
@@ -27,11 +27,13 @@
     
 
     <main slyle="margin-bottom:80px;">
-    @yield('content')
+        <!-- emplacement du contenu des vues -->
+        @yield('content')
     </main>
 
+    <!-- footer -->
     <footer class="bg-dark py-4 footer-connex">
-        <p class="text-info text-center letter-space">© <?= date("d-m-Y") ?> - <span style="font-weight:bold">boutique La Maison</span> </p>    
+        <p class="text-info text-center letter-space">© <?= date("d-m-Y") ?> - <span style="color:white;">boutique <span class="titre-footer">La Maison</span></span> </p>     
     </footer>
 
     <!-- -----------Bootstrap JS------------------------------------------------------- -->

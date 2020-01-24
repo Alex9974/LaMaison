@@ -10,7 +10,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // ajout du champ role pour définir membre administrateur (renseigné à 1) et non administateur (reenseigné à 0)
+            // ajout du champ role pour définir membre administrateur (renseigné à 1) et non administateur (renseigné à 0)
             $table->unsignedInteger('role')->default(0);
             $table->string('name');
             $table->string('email')->unique();

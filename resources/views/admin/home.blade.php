@@ -10,14 +10,15 @@
             {{ session('status') }}
         </div>
     @endif
+    
     <div class="flex-main-head">
-        <!-- pagination -->
+        <!-- barre de pagination -->
         {{$products->links()}}
         <!-- compteur -->
         <p><span class="display-5 font-weight-bold">{{count($productsTotal)}} produits dans la boutique</span><span class="number-products"> / {{count($productsCount)}} en ligne et {{count($productsCountBr)}} hors ligne</span> </p>
     </div>
 
-    <!-- listing de tous les produits en bdd -->
+    <!-- listing de tous les produits en bdd (en ligne et brouillon) -->
     <table class="table table-striped my-5">
         <thead>
             <tr>
@@ -25,21 +26,25 @@
                 <th scope="col">Catégorie</th>
                 <th scope="col">Prix</th>
                 <th scope="col">Statut</th>
-                <th scope="col">Mettre à jour</th>
-                <th scope="col">Supprimer</th>
+                <th scope="col-1">Mettre à jour</th>
+                <th scope="col-1">Supprimer</th>
+                <th scope="col-1">Voir la fiche</th>
             </tr>
         </thead>
         <tbody>
             @foreach($products as $product)
                 <tr>
+                    <!-- affichage des doonées du produit -->
                     <th>{{$product->title_product}}</th>
                     <td>{{$product->title_category}}</td>
                     <td>@price($product->price)</td>
                     <td>{{$product->status}}</td>
-                    <!-- pour une mise à jour du produit -->
-                    <td><a href="{{ route('admin.edit', $product->id) }}"><button type="button" class="btn btn-info"></button></a></td>
-                    <!-- pour une suppression du produit -->
-                    <td><a href="{{ route('admin.editdestroy', $product->id) }}"><button type="button" class="btn btn-danger"></button></a></td>  
+                    <!-- pour envoyer vers le formulaire de mise à jour du produit -->
+                    <td class="text-center text-info"><a href="{{ route('admin.edit', $product->id) }}" title="Mettre à jour le produit"><i class="far fa-edit icones-admin"></i></a></td>
+                    <!-- pour une la page de confirmation de suppression du produit -->
+                    <td class="text-center text-danger"><a href="{{ route('admin.editdestroy', $product->id) }}" title="Supprimer le produit"><i class="fas fa-trash icones-admin"></i></a></td> 
+                    <!-- pour visualiser la fiche du produit -->
+                    <td class="text-center text-success"><a href="{{ route('product.show', $product->id) }}" title="Voir le produit"><i class="far fa-eye icones-admin"></i></a></td>
                 </tr>
             @endforeach    
         </tbody>

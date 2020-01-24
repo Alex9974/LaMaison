@@ -69,7 +69,7 @@
                             </div>
                             <div class="col-md-6 offset-md-4 mt-4">
                                 @guest
-                                    <a class="text-info" href="{{ route('login') }}">Je suis déjà inscrit</a>
+                                    <a class="text-info" href="{{ route('login') }}"><ins>Je suis déjà inscrit</ins></a>
                                 @endguest 
                             </div>
                         </div>

@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
             'edit' => 'editer',
         ]);
 
-        // affichage des dates en français
+        // affichage des dates en français (si besoin d'afficher la date d'ajout ou de mise à jour d'un produit ?)
         Blade::directive('datetime', function ($expression) {
             return "<?php echo ($expression)->format('d/m/Y à H:i'); ?>";
         });

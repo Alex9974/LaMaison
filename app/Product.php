@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+// modèle de la table products en lien avec les tables categories et pictures
 class Product extends Model
 {
     public function categorie() {

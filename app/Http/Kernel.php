@@ -61,7 +61,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        //le nouveau middleware qui permet de vérifier si membre est administrateur
+        // le nouveau middleware qui permet de vérifier si membre est administrateur (role = 1 dans la table users)
         'admin' => \App\Http\Middleware\Admin::class,
     ];
 

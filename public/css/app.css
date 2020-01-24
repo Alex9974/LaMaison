@@ -68,6 +68,11 @@ header h1{
   font-family: 'Allura', cursive;
 }
 
+.titre-footer {
+  font-size: 25px;
+  font-family: 'Allura', cursive;
+}
+
 header .flex-nav-sup{
   display: flex;
   align-items: center;
@@ -207,6 +212,10 @@ tbody button{
   width: 95%;
   margin: 0 2.5% 20px 2.5%;
   padding: 15px 0;
+}
+
+.icones-admin{
+  font-size: 22px;
 }
 
 
